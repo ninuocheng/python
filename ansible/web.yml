@@ -1,0 +1,25 @@
+---
+- hosts: web
+  tasks:
+    - name: update httpd.conf
+      copy:
+        src: httpd.conf
+        dest: /etc/httpd/conf/httpd.conf 
+        owner: root
+        group: root
+        mode: 0644
+      tags: update_conf
+      notify: reload httpd.conf
+    - name: update index.html
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+        mode: 0644
+      tags: update_index
+  handlers:
+    - name: reload httpd.conf
+      service:
+        name: httpd
+        state: restarted

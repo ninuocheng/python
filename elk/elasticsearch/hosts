@@ -1,0 +1,7 @@
+# ::1		localhost localhost.localdomain localhost6 localhost6.localdomain6
+127.0.0.1	localhost localhost.localdomain localhost4 localhost4.localdomain4
+192.168.1.51	es1
+192.168.1.52	es2
+192.168.1.53	es3
+192.168.1.54	es4
+192.168.1.55	es5

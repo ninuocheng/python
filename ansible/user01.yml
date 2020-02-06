@@ -1,0 +1,9 @@
+---
+- name: add user
+  hosts: web
+  tasks:
+    - name: 添加用户 "{{ username }}"
+      user:
+        name: "{{ username }}"
+        group: users
+        password: "{{ pwd|password_hash('sha512') }}"

@@ -1,0 +1,11 @@
+[local_repo]
+name=CentOS-$releasever - Base
+baseurl="ftp://192.168.1.254/centos-1804"
+enabled=1
+gpgcheck=1
+
+[local_elk]
+name=CentOS-$releasever - ELK
+baseurl="ftp://192.168.1.254/public"
+enabled=1
+gpgcheck=0

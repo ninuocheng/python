@@ -1,0 +1,35 @@
+---
+- name: install zookeeper
+  hosts: node
+  tasks:
+    - name: install java-openjdk
+      yum:
+        name: java-1.8.0-openjdk-devel
+        state: latest
+    - name: create zookeeper work directory
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: 0755
+      with_items:
+        - /usr/local/zookeeper
+        - /tmp/zookeeper
+    - name: install zookeeper
+      unarchive:
+        src: zookeeper-3.4.13.tar.gz
+        dest: /usr/local/zookeeper
+        extra_opts: [--strip-components=1]
+        copy: yes
+        owner: root
+        group: root
+    - name: copy file zoo.cfg
+      copy: 
+        src: zoo.cfg
+        dest: /usr/local/zookeeper/conf/zoo.cfg
+        owner: root
+        group: root
+        mode: 0644
+    - name: create a zookeeper myid
+      shell: grep -Po "\d(?==${HOSTNAME})" /usr/local/zookeeper/conf/zoo.cfg >/tmp/zookeeper/myid
+    - name: start zookeeper service
+      shell: /usr/local/zookeeper/bin/zkServer.sh start

@@ -1,0 +1,46 @@
+---------------------------------跳板机------------------------------
+配置 yum
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.myhuaweicloud.com/repo/CentOS-Base-7.repo
+
+安装工具包 
+yum install net-tools lftp rsync psmisc vim bash-completion createrepo vsftpd ansible lrzsz
+
+创建自定义 yum 源
+mkdir /var/ftp/localrepo
+cd /var/ftp/localrepo
+createrepo  .
+# createrepo --update .  更新
+
+systemctl start vsftpd
+systemctl enable vsftpd
+
+优化系统服务
+systemctl stop postfix ntpd
+yum remove postfix ntp
+yum install chrony
+vim /etc/chrony.conf 
+    server ntp.myhuaweicloud.com iburst
+
+systemctl enable chronyd
+systemctl start  chronyd\
+
+# 上传私钥文件
+# 私钥文件 /root/.ssh/id_rsa
+# 权限 chmod 0400 /root/.ssh/id_rsa
+---------------------------------模板机------------------------------
+配置 yum
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.myhuaweicloud.com/repo/CentOS-Base-7.repo
+配置跳板机的 yum 源
+
+安装工具包
+yum install net-tools lftp rsync psmisc vim bash-completion lrzsz
+
+优化系统服务
+systemctl stop postfix ntpd
+yum remove postfix ntp
+yum install chrony
+vim /etc/chrony.conf 
+    server ntp.myhuaweicloud.com iburst
+
+systemctl enable chronyd
+systemctl start  chronyd

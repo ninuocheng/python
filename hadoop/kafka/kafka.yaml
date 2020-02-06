@@ -1,0 +1,32 @@
+---
+- name: install kafka
+  hosts: node
+  tasks:
+    - name: install java-openjdk
+      yum:
+        name: java-1.8.0-openjdk-devel
+        state: latest
+    - name: create kafka work directory
+      file:
+        path: /usr/local/kafka
+        state: directory
+        mode: 0755
+    - name: install kafka
+      unarchive:
+        src: kafka_2.12-2.1.0.tgz
+        dest: /usr/local/kafka
+        extra_opts: [--strip-components=1]
+        copy: yes
+        owner: root
+        group: root
+    - name: copy file server.properties
+      template: 
+        src: server.properties.j2
+        dest: /usr/local/kafka/config/server.properties
+        owner: root
+        group: root
+        mode: 0644
+    - name: start kafka service
+      shell: bin/kafka-server-start.sh -daemon config/server.properties
+      args:
+        chdir: /usr/local/kafka

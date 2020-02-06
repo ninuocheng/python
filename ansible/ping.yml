@@ -1,0 +1,6 @@
+---
+- name: 连通性测试
+  remote_user: root
+  hosts: all
+  tasks:
+    - ping: 

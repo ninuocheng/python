@@ -1,0 +1,10 @@
+---
+- name: test error ignore
+  hosts: web
+  tasks:
+    - name: create cache directory
+      shell: mkdir /tmp/cache
+      ignore_errors: True
+    - service:
+        name: httpd
+        state: restarted

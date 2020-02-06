@@ -1,0 +1,30 @@
+---
+- name: add user
+  hosts: db
+  tasks:
+    - name: 添加用户 "{{ item.username }}"
+      user:
+        name: "{{ item.username }}"
+        group: "{{ item.group }}"
+        password: "{{ item.passwd|password_hash('sha512') }}"
+      with_items:
+        - 
+          username: nb
+          passwd: "123456"
+          group: users
+        - 
+          username: wk
+          passwd: banana
+          group: bin
+        - 
+          username: dd
+          passwd: book
+          group: daemon
+        - 
+          username: jj
+          passwd: 123qqq...A
+          group: mysql
+        - 
+          username: xx
+          passwd: a
+          group: root

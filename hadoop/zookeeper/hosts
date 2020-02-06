@@ -1,0 +1,10 @@
+all:
+  children:
+    node:
+      hosts:
+        node1:
+        node2:
+        node3:
+    ungrouped: {}
+  vars:
+    ansible_ssh_pass: a
