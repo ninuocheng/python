@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my css2</title>
+    <style>
+        a:link {
+            text-decoration: none;   /*未访问，取消下划线*/
+        }
+        a:hover {
+            font-size: 1.5em;   /*鼠标悬停时，字号放大1.5倍*/
+        }
+        a:visited {
+            color: dimgray;   /*访问后的样式，历史记录中存在就是访问后*/
+        }
+        .c1 {
+            border: 1px dashed black;
+            width: 50%;
+        }
+        .c2 {
+            width: 200px;
+            height: 200px;
+            /*background: rgb(150, 150, 150);  !*10进制表示颜色*!*/
+            /*background: #1289ae;  !*16进制颜色*!*/
+            /*background: #33aa66;  !*等同于下面的写法*!*/
+            /*background: #3a6;*/
+            /*background: darkcyan;*/
+            background: #c6ab67;
+        }
+        .c3 {
+            width: 500px;
+            border: 1px dotted black;
+        }
+        .c4 {
+            width: 300px;
+            height: 300px;
+            /*border: 1px solid black;*/
+            border-left: 1px solid black;
+            border-right: 2px dotted blue;
+            border-top: 3px dashed purple;
+            border-bottom: 4px solid black;
+            /*padding: 10px 20px 30px 40px;  !*内边距，方向：上右下左*!*/
+            /*padding: 20px;  !*四个方向全是20px*!*/
+            padding: 10px 30px;   /*上下10px,左右30px*/
+            margin: 30px;   /*外边距*/
+        }
+        body {
+            /*background-image: url("http://bpic.588ku.com/element_pic/01/02/44/4556f419584beae.jpg");*/
+            /*background-repeat: repeat-x;*/
+            /*background-repeat: repeat-y;*/
+            /*background-repeat: no-repeat;*/
+        }
+        .c5 {
+            font-family: Serif;
+            font-style: italic;
+        }
+        .c6 {
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .c7 {
+            color: #aa6688;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .c8 {
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="c8">云计算 NSD1908 nsd1908</div>
+
+<div class="c7">云计算 NSD1908 nsd1908</div>
+
+<div class="c5">云计算 NSD1908 nsd1908</div>
+<div class="c6">云计算 NSD1908 nsd1908</div>
+
+<div class="c4">云计算</div>
+
+<hr>
+<div class="c3">
+    ni hao <br> how are you?
+</div>
+
+<div class="c2"></div>
+
+<div class="c1">达内云计算 NSD1908</div>
+<p>
+    <a href="http://www.icbc.com.cn" target="_blank">中国工商银行</a>
+</p>
+</body>
+</html>
