@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}投票首页{% endblock %}
+{% block content %}
+    <h1 class="text-center text-warning">投票首页</h1>
+    <div class="h4" style="margin: 30px 0">
+        {% for question in questions %}
+        <div>
+            {{ forloop.counter }}.
+            <a href="{% url 'detail' question.id %}" target="_blank">
+                {{ question.question_text }}
+            </a>
+            {{ question.pub_date }}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box</title>
+    <style>
+        /*
+        .box {
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            padding: 10px 20px 30px 40px;
+            margin: 40px 30px 20px 10px;
+        }
+        */
+        .box {
+            border-top: 1px solid black;
+            border-right: 2px dashed blue;
+            border-bottom: 2px dotted green;
+            width: 300px;
+            height: 200px;
+            padding: 20px;  /*四个方向的内边距全部是20*/
+            margin: 10px 20px;  /*上下10，左右20px*/
+            background-color: silver;
+        }
+        body {
+            /*background-image: url("http://img.sj33.cn/uploads/allimg/200808/20080807150441542.png");*/
+            /*background-repeat: repeat-x;*/
+            /*background-repeat: repeat-y;*/
+            /*background-repeat: no-repeat;*/
+        }
+        .c1 {
+            font-family: Fantasy;  /*字体*/
+            font-size: 20px;   /*字号*/
+            font-weight: bold;   /*加粗*/
+            font-style: italic;  /*倾斜*/
+            font-variant: small-caps;  /*小型大写字母*/
+        }
+        .c2 {
+            font-family: Serif;
+            text-align: center;  /*对齐方式*/
+            text-decoration: underline;   /*下划线*/
+            color: green;  /*前景色*/
+        }
+        .c3 {
+            font-family: Monospace;
+        }
+        .c4 {
+            height: 60px;
+            border: 1px dotted black;
+            text-align: center;
+            line-height: 60px;
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="c4">字体abcdABCD</div>
+<div class="c1">字体abcdABCD</div>
+<div class="c2">字体abcdABCD</div>
+<div class="c3">字体abcdABCD</div>
+<div class="box">
+    这是一个框模型
+</div>
+</body>
+</html>
